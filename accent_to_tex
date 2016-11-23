@@ -1,15 +1,14 @@
-#!/bin/sh
+#!/bin/sed -f
 
-set -eu
+s|é|\\'e|g
+s|è|\\`e|g
+s|ê|\\^e|g
 
-for f in "${@}"
-do
-	sed -i "s|é|\\\\'e|g" "${f}"
-	sed -i 's|è|\\`e|g' "${f}"
-	sed -i 's|ê|\\^e|g' "${f}"
+s|É|\\'E|g
+s|È|\\`E|g
+s|Ê|\\^E|g
 
-	sed -i 's|à|\\`a|g' "${f}"
-	sed -i 's|â|\\^a|g' "${f}"
+s|à|\\`a|g
+s|â|\\^a|g
 
-	sed -i 's|ç|\\c{c}|g' "${f}"
-done
+s|ç|\\c{c}|g

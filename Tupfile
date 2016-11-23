@@ -1,3 +1,3 @@
 .gitignore
 
-: foreach *.tex |> pdflatex %f; rm %B.aux %B.log |> %B.pdf
+: foreach *.tex | accent_to_tex |> cat %f | ./accent_to_tex | pdflatex && mv texput.pdf %B.pdf && rm texput.* |> %B.pdf
