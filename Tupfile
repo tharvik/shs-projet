@@ -1,3 +1,4 @@
 .gitignore
 
 : foreach *.tex | accent_to_tex |> cat %f | ./accent_to_tex | pdflatex && mv texput.pdf %B.pdf && rm texput.* |> %B.pdf
+: *.pdf |> zip -r dossier.zip %f |> dossier.zip
