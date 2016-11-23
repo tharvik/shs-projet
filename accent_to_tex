@@ -4,10 +4,17 @@ set -eu
 
 for f in "${@}"
 do
-	sed -i "s|é|\\\\'e|g" "${f}"
-	sed -i 's|è|\\`e|g' "${f}"
-	sed -i 's|ê|\\^e|g' "${f}"
+	sed -i "s|\'e|\\\\'e|g" "${f}"
+	sed -i 's|\`e|\\`e|g' "${f}"
+	sed -i 's|\^e|\\^e|g' "${f}"
 
-	sed -i 's|à|\\`a|g' "${f}"
-	sed -i 's|â|\\^a|g' "${f}"
+	sed -i "s|\'E|\\\\'E|g" "${f}"
+	sed -i 's|\`E|\\`E|g' "${f}"
+	sed -i 's|\^E|\\^E|g' "${f}"
+
+	sed -i 's|\`a|\\`a|g' "${f}"
+	sed -i 's|\^a|\\^a|g' "${f}"
+
+	sed -i 's|\`A|\\`A|g' "${f}"
+	sed -i 's|\^A|\\^A|g' "${f}"
 done
